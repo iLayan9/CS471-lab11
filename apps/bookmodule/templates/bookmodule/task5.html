@@ -1,0 +1,30 @@
+{% extends "bookmodule/layouts/base.html" %}
+
+{% block title %} Book Statistics {% endblock title %}
+
+{% block content %}
+<h2>Book Statistics</h2>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <tr>
+        <th>Total Books</th>
+        <td>{{ count }}</td>
+    </tr>
+    <tr>
+        <th>Total Price</th>
+        <td>{{ total }}</td>
+    </tr>
+    <tr>
+        <th>Average Price</th>
+        <td>{{ average }}</td>
+    </tr>
+    <tr>
+        <th>Maximum Price</th>
+        <td>{{ maximum }}</td>
+    </tr>
+    <tr>
+        <th>Minimum Price</th>
+        <td>{{ minimum }}</td>
+    </tr>
+</table>
+{% endblock content %}
