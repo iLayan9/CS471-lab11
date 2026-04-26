@@ -1,0 +1,21 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Task 5 {% endblock title %}
+{% block content %}
+<h2>Publishers with Highly Rated Books</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Publisher</th>
+            <th>Highly Rated Books Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in publishers %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.high_rated_count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

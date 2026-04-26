@@ -1,0 +1,21 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Task 3 {% endblock title %}
+{% block content %}
+<h2>Oldest Book per Publisher</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Publisher</th>
+            <th>Oldest Book Date</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in publishers %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.oldest_book }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

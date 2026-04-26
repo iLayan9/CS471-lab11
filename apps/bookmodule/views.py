@@ -174,3 +174,47 @@ def lab8_task5(request):
 def lab8_task7(request):
     cities = Address.objects.annotate(student_count=Count('student')).values('city', 'student_count')
     return render(request, 'bookmodule/task7.html', {'cities': cities})
+
+
+#lab9
+
+from django.db.models import Q, Count, Sum, Avg, Max, Min, F, ExpressionWrapper, FloatField
+from .models import Book, Publisher, Author, Address, Student
+
+def lab9_task1(request):
+    total = Book.objects.count()
+    books = Book.objects.all()
+    for book in books:
+        book.percentage = round((book.quantity / total) * 100, 2)
+    return render(request, 'bookmodule/lab9_task1.html', {'books': books})
+
+
+def lab9_task2(request):
+    publishers = Publisher.objects.annotate(total_stock=Sum('book__quantity'))
+    return render(request, 'bookmodule/lab9_task2.html', {'publishers': publishers})
+
+
+def lab9_task3(request):
+    publishers = Publisher.objects.annotate(oldest_book=Min('book__pubdate'))
+    return render(request, 'bookmodule/lab9_task3.html', {'publishers': publishers})
+
+
+def lab9_task4(request):
+    publishers = Publisher.objects.annotate(
+        avg_price=Avg('book__price'),
+        min_price=Min('book__price'),
+        max_price=Max('book__price')
+    )
+    return render(request, 'bookmodule/lab9_task4.html', {'publishers': publishers})
+
+def lab9_task5(request):
+    publishers = Publisher.objects.annotate(
+        high_rated_count=Count('book', filter=Q(book__rating__gte=4))
+    ).values('name', 'high_rated_count')
+    return render(request, 'bookmodule/lab9_task5.html', {'publishers': publishers})
+
+def lab9_task6(request):
+    publishers = Publisher.objects.annotate(
+        book_count=Count('book', filter=Q(book__price__gt=50) & Q(book__quantity__lt=5) & Q(book__quantity__gte=1))
+    ).values('name', 'book_count')
+    return render(request, 'bookmodule/lab9_task6.html', {'publishers': publishers})

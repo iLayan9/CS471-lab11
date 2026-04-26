@@ -1,0 +1,21 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Task 6 {% endblock title %}
+{% block content %}
+<h2>Books Count per Publisher (price > 50, quantity 1-4)</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Publisher</th>
+            <th>Book Count</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in publishers %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.book_count }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

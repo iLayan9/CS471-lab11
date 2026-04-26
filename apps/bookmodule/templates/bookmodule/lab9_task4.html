@@ -1,0 +1,25 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Task 4 {% endblock title %}
+{% block content %}
+<h2>Price Statistics per Publisher</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Publisher</th>
+            <th>Avg Price</th>
+            <th>Min Price</th>
+            <th>Max Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in publishers %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.avg_price|floatformat:2 }}</td>
+            <td>{{ p.min_price }}</td>
+            <td>{{ p.max_price }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

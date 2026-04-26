@@ -1,0 +1,23 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Task 1 {% endblock title %}
+{% block content %}
+<h2>Books with Availability Percentage</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Quantity</th>
+            <th>Availability %</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.quantity }}</td>
+            <td>{{ book.percentage }}%</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}

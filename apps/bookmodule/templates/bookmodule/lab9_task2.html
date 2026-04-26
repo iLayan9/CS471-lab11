@@ -1,0 +1,21 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Task 2 {% endblock title %}
+{% block content %}
+<h2>Publishers with Total Book Stock</h2>
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>Publisher</th>
+            <th>Total Stock</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for p in publishers %}
+        <tr>
+            <td>{{ p.name }}</td>
+            <td>{{ p.total_stock }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock content %}
