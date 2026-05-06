@@ -1,0 +1,24 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Add Book {% endblock title %}
+{% block content %}
+
+<h2>Add New Book</h2>
+<form method="post" action="">
+    {% csrf_token %}
+    <label>Title:</label><br>
+    <input type="text" name="title"><br><br>
+
+    <label>Price:</label><br>
+    <input type="number" step="0.01" name="price"><br><br>
+
+    <label>Quantity:</label><br>
+    <input type="number" name="quantity"><br><br>
+
+    <label>Rating (1-5):</label><br>
+    <input type="number" name="rating" min="1" max="5"><br><br>
+
+    <button type="submit">Add Book</button>
+    <a href="/books/lab9_part1/listbooks">Cancel</a>
+</form>
+
+{% endblock content %}
