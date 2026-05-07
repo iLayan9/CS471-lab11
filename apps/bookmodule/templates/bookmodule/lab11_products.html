@@ -1,0 +1,40 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Products {% endblock title %}
+{% block content %}
+
+<h2>Product List</h2>
+<a href="/books/lab11/addproduct">+ Add New Product</a>
+<br><br>
+
+<table border="1" cellpadding="8" cellspacing="0">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Image</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for product in products %}
+        <tr>
+            <td>{{ product.id }}</td>
+            <td>{{ product.name }}</td>
+            <td>{{ product.description }}</td>
+            <td>
+                {% if product.image %}
+                <img src="{{ product.image.url }}" width="100">
+                {% endif %}
+            </td>
+            <td>
+                <a href="/books/lab11/editproduct/{{ product.id }}">Edit</a>
+                &nbsp;
+                <a href="/books/lab11/deleteproduct/{{ product.id }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock content %}

@@ -49,7 +49,20 @@ urlpatterns = [
     path('lab9_part1/deletebook/<int:id>', views.lab10_deletebook),
     #lab10_part2
     path('lab9_part2/listbooks', views.lab10_p2_listbooks),
-path('lab9_part2/addbook', views.lab10_p2_addbook),
-path('lab9_part2/editbook/<int:id>', views.lab10_p2_editbook),
-path('lab9_part2/deletebook/<int:id>', views.lab10_p2_deletebook),
+    path('lab9_part2/addbook', views.lab10_p2_addbook),
+    path('lab9_part2/editbook/<int:id>', views.lab10_p2_editbook),
+    path('lab9_part2/deletebook/<int:id>', views.lab10_p2_deletebook),
+#lab11
+    path('lab11/students', views.lab11_students),
+path('lab11/addstudent', views.lab11_addstudent),
+path('lab11/editstudent/<int:id>', views.lab11_editstudent),
+path('lab11/deletestudent/<int:id>', views.lab11_deletestudent),
+path('lab11/students2', views.lab11_students2),
+path('lab11/addstudent2', views.lab11_addstudent2),
+path('lab11/editstudent2/<int:id>', views.lab11_editstudent2),
+path('lab11/deletestudent2/<int:id>', views.lab11_deletestudent2),
+path('lab11/products', views.lab11_products),
+path('lab11/addproduct', views.lab11_addproduct),
+path('lab11/editproduct/<int:id>', views.lab11_editproduct),
+path('lab11/deleteproduct/<int:id>', views.lab11_deleteproduct),
     ]

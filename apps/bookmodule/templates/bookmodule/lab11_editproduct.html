@@ -1,0 +1,16 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Edit Product {% endblock title %}
+{% block content %}
+
+<h2>Edit Product</h2>
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    {% if product.image %}
+        <p>Current image: <img src="{{ product.image.url }}" width="100"></p>
+    {% endif %}
+    <button type="submit">Save Changes</button>
+    <a href="/books/lab11/products">Cancel</a>
+</form>
+
+{% endblock content %}

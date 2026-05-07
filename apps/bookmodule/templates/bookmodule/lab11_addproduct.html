@@ -1,0 +1,13 @@
+{% extends "bookmodule/layouts/base.html" %}
+{% block title %} Add Product {% endblock title %}
+{% block content %}
+
+<h2>Add New Product</h2>
+<form method="post" action="" enctype="multipart/form-data">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">Add Product</button>
+    <a href="/books/lab11/products">Cancel</a>
+</form>
+
+{% endblock content %}
